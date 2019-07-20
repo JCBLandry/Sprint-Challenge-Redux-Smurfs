@@ -29,22 +29,22 @@ class SmurfList extends Component {
     handleSubmit = (e) =>{
         e.preventDefault()
 
-            this.props.newSmurf(this.state.newsmurf)
+            this.props.newsmurf(this.state.newsmurf)
         
     }
     render() {
         return(
             <div>
-                <div>{this.props.smurf.map((smurf, id)=> <Smurf key= {id} smurf= {smurf} />)} 
+                <div>{this.props.smurfs.map((smurf, id)=> <Smurf key= {id} smurf= {smurf} />)} 
                 </div>
 
                 <div>
                     <form onSubmit = {this.handleSubmit}>
-                        <input onChange= {this.handleChange} type= 'name' placeholder= 'name' name= 'name' value= {this.state.name} />
+                        <input onChange= {this.handlechange} type= 'name' placeholder= 'name' name= 'name' value= {this.state.name} />
 
-                        <input onChange= {this.handleChange} type= 'age' placeholder= 'age' name= 'age' value= {this.state.age} />
+                        <input onChange= {this.handlechange} type= 'age' placeholder= 'age' name= 'age' value= {this.state.age} />
 
-                        <input onChange= {this.handleChange} type= 'height' placeholder= 'height' name= 'height' value= {this.state.height} />
+                        <input onChange= {this.handlechange} type= 'height' placeholder= 'height' name= 'height' value= {this.state.height} />
 
                         <button value= 'submit'>New Smurf</button>
                     </form>

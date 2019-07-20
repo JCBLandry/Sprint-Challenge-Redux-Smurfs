@@ -2,7 +2,7 @@ import { GET_SMURFS,
   GET_SMURFS_SUCCESS, 
   GET_SMURFS_FAILURE, 
   NEW_SMURF_START, 
-  NEW_SMURF_FAILURE } from '..actions'
+  NEW_SMURF_FAILURE } from '../actions'
 
 const initialstate=
  {
