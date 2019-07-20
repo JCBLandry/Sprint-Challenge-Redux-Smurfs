@@ -33,6 +33,7 @@ axios
 .get('http://localhost:3333/smurfs', smurfData)
 
 .then(res =>{
+  dispatch({
   type: GET_SMURFS_SUCCESS,
   payload: res.data,
 })
@@ -48,15 +49,17 @@ axios
 export const newsmurf = (smurf) => dispatch =>{
   axios
     .post('http://localhost:3333/smurfs', smurf,)
-}
+
 
 .then(res =>{
   dispatch({
     type: NEW_SMURF_START,
-    payload: res.data.
+    payload: res.data,
   })
 })
+
 .catch(err => dispatch({
   type: NEW_SMURF_FAILURE,
-  payload: err
+  payload: err,
 }))
+}
