@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getSmurf } from '../actions'
-import { newSmurf } from '../actions'
-import Smurf from './smurf'
+import { getSmurfs } from '../actions'
+import { newsmurf } from '../actions'
+import Smurf from './Smurf'
 
 class SmurfList extends Component {
     state={
@@ -14,7 +14,7 @@ class SmurfList extends Component {
     }
 
     componentDidMount(){
-        this.props.getsmurf()
+        this.props.getSmurfs()
     }
     handlechange = (e) =>{
         e.preventDefault()
@@ -60,5 +60,5 @@ const mapStateToProps = state =>{
 }
 export default connect(
     mapStateToProps,
-    {getsmurf, newsmurf}
+    {getSmurfs, newsmurf}
 )(SmurfList)
