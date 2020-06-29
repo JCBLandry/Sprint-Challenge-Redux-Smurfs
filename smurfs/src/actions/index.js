@@ -13,3 +13,53 @@
    U - updateSmurf
    D - deleteSmurf
 */
+
+import axios from 'axios'
+
+export const GET_SMURFS = 'GET_SMURF'
+export const GET_SMURFS_SUCCESS = 'GET_SMURFS_SUCCESS'
+export const GET_SMURFS_FAILURE = 'GET_SMURFS_FAILURE'
+export const NEW_SMURF_START = 'NEW_SMURF_START'
+export const NEW_SMURF_FAILURE = 'NEW_SMURF_FAILURE'
+
+
+export const getSmurfs = (smurfData) => dispatch =>{
+  dispatch({
+    type: GET_SMURFS
+  })
+
+axios
+
+.get('http://localhost:3333/smurfs', smurfData)
+
+.then(res =>{
+  dispatch({
+  type: GET_SMURFS_SUCCESS,
+  payload: res.data,
+})
+})
+.catch(err=>{
+  dispatch({
+    type: GET_SMURFS_FAILURE,
+    payload: err,
+  })
+})
+}
+
+export const newsmurf = (smurf) => dispatch =>{
+  axios
+    .post('http://localhost:3333/smurfs', smurf,)
+
+
+.then(res =>{
+  dispatch({
+    type: NEW_SMURF_START,
+    payload: res.data,
+  })
+})
+
+.catch(err => dispatch({
+  type: NEW_SMURF_FAILURE,
+  payload: err,
+}))
+}
